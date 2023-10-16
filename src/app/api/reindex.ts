@@ -1,11 +1,16 @@
+import { AuthJSONType } from '@/types/GoogleApiTypes';
 import { Auth } from 'googleapis';
-import key from '../../assets/recache-bro-c66b67e2ec4c.json';
 
-export default () => {
+type ReindexPropsType = {
+  authJSON: AuthJSONType,
+  urls: string[]
+};
+
+export default ({ authJSON, urls }: ReindexPropsType) => {
   const jwtClient = new Auth.JWT(
-    key.client_email,
+    authJSON.client_email,
     undefined,
-    key.private_key,
+    authJSON.private_key,
     ['https://www.googleapis.com/auth/indexing'],
     undefined,
   );
@@ -15,8 +20,9 @@ export default () => {
       return;
     }
 
-    const url = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
-    const options = {
+    const endPoint = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
+
+    const options = (url: string) => ({
       method: 'POST',
       // Your options, which must include the Content-Type and auth headers
       headers: {
@@ -26,14 +32,16 @@ export default () => {
       auth: { bearer: tokens?.access_token ?? '' },
       // Define contents here. The structure of the content is described in the next step.
       body: JSON.stringify({
-        url: 'https://recache-bro.pages.dev/',
+        url,
         type: 'URL_UPDATED',
       }),
-    };
+    });
 
-    const response = await fetch(url, options);
-    const body = await response.json();
+    const response = await Promise.all(
+      urls.map((url) => fetch(endPoint, options(url))),
 
-    console.log(body);
+    );
+
+    await response.map(async (responseItem) => console.log(await responseItem.json()));
   });
 };

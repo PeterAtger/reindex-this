@@ -1,10 +1,11 @@
 import '../../assets/css/blobz.min.css';
 
 export default async function Blobs() {
+  const blobSize = 'md:w-[600px] md:h-[600px] w-0 h-0';
   return (
     <>
       <div
-        className="tk-blob absolute -bottom-36 -left-36 w-4/12 h-4/12"
+        className={`tk-blob absolute -bottom-36 -left-36 ${blobSize}`}
         style={{ fill: '#cc6743', position: 'absolute' }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341.4 374.7">
@@ -13,7 +14,7 @@ export default async function Blobs() {
       </div>
 
       <div
-        className="tk-blob blob-animated p-2 p-md-6 absolute -bottom-36 -left-36 w-4/12 h-4/12 "
+        className={`tk-blob blob-animated p-2 p-md-6 absolute -bottom-36 -left-36 ${blobSize}`}
         style={{ strokeWidth: '4px', position: 'absolute' }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 927 926.1">
@@ -28,7 +29,7 @@ export default async function Blobs() {
       </div>
 
       <div
-        className="tk-blob absolute -top-36 -right-36 w-4/12 h-4/12 "
+        className={`tk-blob absolute -top-36 -right-36 ${blobSize}`}
         style={{ fill: '#214761', position: 'absolute' }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341.4 374.7">
@@ -37,7 +38,7 @@ export default async function Blobs() {
       </div>
 
       <div
-        className="tk-blob blob-animated p-2 p-md-6 absolute -top-36 -right-36 w-4/12 h-4/12 "
+        className={`tk-blob blob-animated p-2 p-md-6 absolute -top-36 -right-36 ${blobSize}`}
         style={{ strokeWidth: '4px', position: 'absolute' }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 927 926.1">

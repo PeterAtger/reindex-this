@@ -1,7 +1,5 @@
-import localFont from 'next/font/local';
+import { arrowsFont } from '@/utils/fonts';
 import Link from 'next/link';
-
-const arrowsFont = localFont({ src: '../../assets/fonts/arrows/Arrows.ttf' });
 
 export default async function Header() {
   return (
