@@ -2,13 +2,14 @@
 
 import { cleanUrls } from '@/utils/urls';
 import reindex from '../reindex';
+import { getProjects } from '../getProjects';
 
 export default async (prevState: string, formData: FormData) => {
-  const rawAuthJSON = formData.get('JSON');
+  const selectedProject = formData.get('projects');
   const rawUrls = formData.get('URLS');
 
-  if (!rawAuthJSON) {
-    return 'Please enter a correct JSON file object';
+  if (!selectedProject || selectedProject === 'choose') {
+    return 'Please select a Project';
   }
 
   if (!rawUrls) {
@@ -16,16 +17,16 @@ export default async (prevState: string, formData: FormData) => {
   }
 
   try {
-    const authJSON = JSON.parse(rawAuthJSON.toString());
     const urls = cleanUrls(rawUrls.toString()).split('\n');
+    const project = (await getProjects()).getProjectByName(selectedProject.toString());
 
-    // eslint-disable-next-line no-promise-executor-return
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    if (!project) {
+      return 'Please ask Peter to update DB, tell the website said so';
+    }
+    const message = await reindex({ authJSON: project.projectData, urls });
 
-    // await reindex({ authJSON, urls });
-
-    return 'Something went right';
+    return message.join('\n');
   } catch {
-    return 'Something went wrong';
+    return 'Something went wrong, not sure what';
   }
 };

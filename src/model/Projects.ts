@@ -13,4 +13,8 @@ export class ProjectsClass {
   getAllProjects() {
     return this.items;
   }
+
+  getProjectByName(name: string) {
+    return this.items.find((item) => (item.projectName === name));
+  }
 }

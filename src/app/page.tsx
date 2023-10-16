@@ -3,6 +3,7 @@ import Leaves from './components/Leaves';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Form from './components/Form';
+import MultiSelect from './components/MultiSelect';
 
 export default async function Home() {
   return (
@@ -13,7 +14,9 @@ export default async function Home() {
       <Leaves />
 
       <div className="form-container flex-1 w-full flex flex-col items-center">
-        <Form />
+        <Form>
+          <MultiSelect />
+        </Form>
       </div>
 
       <Footer />
