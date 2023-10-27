@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Reindex-This
+
+Reindex-This is a web application that simplifies the process of reindexing web pages using the Google Indexing API. Whether you need to update search engine information for your website or any available projects, Reindex-This has you covered.
+
+## Table of Contents
+- [Getting Started](#getting-started)
+  - [Step 1: Select a Project](#step-1-select-a-project)
+  - [Step 2: Provide a List of URLs](#step-2-provide-a-list-of-urls)
+  - [Step 3: Reindex](#step-3-reindex)
+- [Adding a Custom Project](#adding-a-custom-project)
+  - [Step 1: Add Project Name](#step-1-add-project-name)
+  - [Step 2: Obtain a Service Account Key JSON File](#step-2-obtain-a-service-account-key-json-file)
+  - [Step 3: Add Project](#step-3-add-project)
+- [Future Plans](#future-plans)
+- [How to Install Locally](#how-to-install-locally)
+- [License](#license)
+- [Contribution](#contribution)
 
 ## Getting Started
 
-First, run the development server:
+To get started with Reindex-This, follow these easy steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Step 1: Select a Project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Visit the Reindex-This website at [https://reindex-this.vercel.app/](https://reindex-this.vercel.app/).
+2. Choose one of the available projects for which you want to reindex web pages. Selecting a project is the first step in the reindexing process.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Step 2: Provide a List of URLs
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. After selecting a project, you will be prompted to provide a list of URLs that you want to reindex. These could be the web pages you want to update in the search engine's index.
 
-## Learn More
+### Step 3: Reindex
 
-To learn more about Next.js, take a look at the following resources:
+1. Once you've added the list of URLs, simply click the "Reindex" button to initiate the reindexing process.
+2. The application will send a request to the Google Indexing API, and your specified URLs will be reindexed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+It's as simple as that! Reindex-This streamlines the process, making it easy to keep your website's search engine information up-to-date.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Adding a Custom Project
 
-## Deploy on Vercel
+If you have a unique project that is not listed among the available projects, you can add it by following these steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Step 1: Add Project Name
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Click the "Add Project" button on the Reindex-This website.
+2. Enter a name for your project. This will help you identify it later.
+
+### Step 2: Obtain a Service Account Key JSON File
+
+1. To use the Google Indexing API, you need to follow Google's API prerequisites. Obtain a service account key JSON file by following the guide provided by Google at [Google Indexing API Prerequisites](https://developers.google.com/search/apis/indexing-api/v3/prereqs).
+2. Save the service account key JSON file to your local device.
+
+### Step 3: Add Project
+
+1. Paste the contents of the service account key JSON file into the appropriate field on the Reindex-This website.
+2. Click the "Add Project" button.
+
+Your custom project is now added to Reindex-This, and you can use it for reindexing web pages just like the available projects.
+
+## Future Plans
+
+We have plans to enhance Reindex-This with the ability to unindex web pages in the future. This feature will make it even more versatile and useful for managing your web page indexing.
+
+## How to Install Locally
+
+If you want to run Reindex-This locally on your machine, follow these steps:
+
+1. Ensure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your system.
+
+2. Clone the Reindex-This repository:
+
+   ```shell
+   git clone https://github.com/peteratger/reindex-this.git
+   ```
+
+3. Navigate to the project directory:
+
+   ```shell
+   cd reindex-this
+   ```
+
+4. Install the project dependencies:
+
+   ```shell
+   npm install
+   ```
+
+5. Start the local development server:
+
+   ```shell
+   npm run dev
+   ```
+
+6. Open your web browser and visit [http://localhost:3000](http://localhost:3000) to access Reindex-This locally.
+
+## License
+
+This project is licensed under the MIT License
+
+## Contribution
+
+We welcome contributions to Reindex-This. If you'd like to contribute: 
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with descriptive messages.
+4. Push your branch to your fork on GitHub.
+5. Create a pull request to the main branch of this repository, describing the changes and improvements you've mad
