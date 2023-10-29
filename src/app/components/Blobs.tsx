@@ -2,6 +2,7 @@ import '../../assets/css/blobz.min.css';
 
 export default async function Blobs() {
   const blobSize = 'md:w-[600px] md:h-[600px] w-0 h-0';
+
   return (
     <>
       <div

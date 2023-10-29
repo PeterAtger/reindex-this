@@ -3,7 +3,7 @@ import MultiSelectComponent from './MultiSelectComponent';
 
 export default async function MultiSelectContainer() {
   const projcets = await getProjects();
-  const options = projcets.getAllProjects().map((projcet) => (projcet.projectName));
+  const options = projcets.getAllProjects().map((project) => (project.projectName));
 
   return (
     <MultiSelectComponent options={options} />
