@@ -2,7 +2,7 @@ import '../../assets/css/blobz.min.css';
 
 export default async function Blobs() {
   return (
-    <p className="text-xs font-bold mb-8 text-gray-600">
+    <p className="text-xs font-bold my-8 text-gray-600">
       Learn more about what this website does
       {' '}
       <a

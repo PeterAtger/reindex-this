@@ -1,18 +1,24 @@
 'use client';
 
 import {
-  experimental_useFormState as useFormState,
+  useFormState,
 } from 'react-dom';
-import onReindex from '@/app/api/form-actions/onReindex';
 import FormComponent from './FormComponent';
 
-export default function FormContainer({ children }: { children: JSX.Element }) {
-  const [state, formAction] = useFormState(onReindex, '');
+type FormContainerProps = {
+  children: JSX.Element,
+  buttonText: string,
+  formAction: (prevState: string, formData: FormData)=> Promise<string>
+};
+
+export default function FormContainer({ children, formAction, buttonText }: FormContainerProps) {
+  const [state, onSubmit] = useFormState(formAction, '');
 
   return (
     <FormComponent
-      onSubmit={formAction}
+      onSubmit={onSubmit}
       message={state}
+      buttonText={buttonText}
     >
       {children}
     </FormComponent>

@@ -1,7 +1,9 @@
-import { PROJECTS, ProjectType } from '@/types/CollectionTypes';
-import { createModel } from '@/lib/schemas';
+import { PROJECTS, ProjectSchema, ProjectType } from '@/types/CollectionTypes';
+import { Schema, model, models } from 'mongoose';
 
-export const ProjectsDBModel = createModel<ProjectType>(PROJECTS);
+const schema = new Schema<ProjectType>(ProjectSchema, { collection: PROJECTS, _id: true });
+
+export const ProjectsDBModel = models[PROJECTS] || model(PROJECTS, schema, PROJECTS);
 
 export class ProjectsClass {
   items: ProjectType[];
