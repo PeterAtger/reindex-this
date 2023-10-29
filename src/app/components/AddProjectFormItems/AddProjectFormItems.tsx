@@ -18,7 +18,18 @@ export default function AddProjectFormItems() {
 
       {renderTitle('2. Paste the JSON key here ')}
 
-      <div className="m-4 mb-4">
+      <div className="m-4">
+        <p className="text-xs font-bold my-2 text-gray-600">
+          What JSON file ?
+          {' '}
+          <a
+            className="text-primary"
+            href="https://developers.google.com/search/apis/indexing-api/v3/prereqs"
+          >
+            Follow this Guide
+          </a>
+        </p>
+
         <textarea
           className="block w-full p-4 bg-opacity-70 bg-white resize-none rounded-md text-gray-600 placeholder-gray-400 focus:ring"
           rows={16}
